@@ -1,0 +1,10 @@
+
+    <ul class="other-pets-list">
+    {{#if haveEntries}}
+    {{#each entries}}
+        {{> entry}}
+    {{/each}}
+    {{else}}
+    <div>No public entries yet!</div>
+    {{/if}}
+    </ul>

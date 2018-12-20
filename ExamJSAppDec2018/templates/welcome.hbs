@@ -1,0 +1,28 @@
+{{> header}}
+<div id="main">
+    {{#if isAuth}}
+    <main id="site-content">
+        <section class="dashboard">
+            <h1>Dashboard</h1>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#/">All</a></li>
+                    <li><a href="#/filtered/Cat">Cats</a></li>
+                    <li><a href="#/filtered/Dog">Dogs</a></li>
+                    <li><a href="#/filtered/Parrot">Parrots</a></li>
+                    <li><a href="#/filtered/Reptile">Reptiles</a></li>
+                    <li><a href="#/filtered/Other">Other</a></li>
+                </ul>
+            </nav>
+            {{> allPets}}
+
+        </section>
+    </main>
+    {{else }}
+    <main id="site-content">
+        <section class="basic">
+            <h1> Welcome to pet my pet!</h1>
+        </section>
+    </main>
+    {{/if}}
+    {{> footer}}

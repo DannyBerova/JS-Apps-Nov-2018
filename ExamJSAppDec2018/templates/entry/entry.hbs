@@ -1,0 +1,38 @@
+<li class="otherPet">
+    <h3>Name: {{name}}</h3>
+    <p>Category: {{category}}</p>
+    <p class="img"><img src="{{imageURL}}"></p>
+    <p class="description">{{description}}</p>
+    <div class="pet-info" id="counterPetLikesh{{_id}}">
+        <a href=""><button onclick="petMe(`{{{_id}}}`)" class="button"><i class="fas fa-heart"></i> Pet</button></a>
+        <a href="#/entry/entry-details/{{{_id}}}"><button class="button">Details</button></a>
+        <i class="fas fa-heart"></i> <span> {{likes}}</span>
+    </div>
+</li>
+
+<script>
+    function petMe(id) {
+         console.log(id)
+
+    entriesService.getById(id)
+        .then((pet) =>{
+            pet.likes = (+pet.likes + 1);
+
+            let p = {};
+            entriesService.editById(pet)
+                .then((res) => {
+                    p = res;
+                    $(`#counterPetLikesh${id}`).html(`<a href=""><button onclick="petMe('${id}')"  class="button"><i class="fas fa-heart"></i> Pet</button></a>
+        <a href="#/entry/entry-details/${id}"><button class="button">Details</button></a>
+        <i class="fas fa-heart"></i> <span> ${res.likes}</span>`);
+                    notify.showInfo('I like this pet!');
+                   return;
+                }).catch((f) => {
+                    console.log(f)
+                });
+        }).catch((fl) => {
+            console.log(fl)
+        });
+        return;
+    }
+</script>

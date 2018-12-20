@@ -1,0 +1,55 @@
+{{!-- <nav>
+    {{#if isAuth}}
+    <div class="left-container">
+        <ul>
+            <li><a href="#/">Home</a></li>
+            <li><a href="#/my-entries">Entries</a></li>
+        </ul>
+    </div>
+
+    <div class="right-container">
+        <ul>
+            <span>Welcome, {{name}} |</span>
+            <a href="#/logout" class="log-out">Logout</a>
+        </ul>
+    </div>
+    {{else}}
+    <div class="left-container">
+        <ul>
+            <li><a href="#/">Home</a></li>
+            <li><a href="#/login">Login</a></li>
+            <li><a href="#/register">Register</a></li>
+        </ul>
+    </div>
+    <div class="right-container">
+        <span></span>
+    </div>
+    {{/if}}
+
+</nav> --}}
+<header id="site-header">
+    <nav class="navbar">
+        {{#if isAuth}}
+        <section class="navbar-dashboard">
+            <div class="first-bar">
+                <a href="#/">Dashboard</a>
+                <a class="button" href="#/my-entries">My Pets</a>
+                <a class="button" href="#/create">Add Pet</a>
+            </div>
+            <div class="second-bar">
+                <ul>
+                    <li>Welcome, {{username}}!</li>
+                    <li><a href="#/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </section>
+        {{else}}
+        <section class="navbar-anonymous">
+            <ul>
+                <li><a href="#/register"><i class="fas fa-user-plus"></i> Register</a></li>
+                <li><a href="#/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+            </ul>
+        </section>
+        {{/if}}
+    </nav>
+</header>

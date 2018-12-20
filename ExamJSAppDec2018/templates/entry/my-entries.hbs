@@ -1,0 +1,16 @@
+{{> header}}
+<section class="my-pets">
+    <h1>My Pets</h1>
+    <ul class="my-pets-list">
+
+        {{#if haveEntries}}        
+        {{#each myentries}}
+        {{> myentry}}
+        {{/each}}
+        {{else}}
+        <div>No entries yet!</div>
+        {{/if}}
+    </ul>
+
+
+    {{> footer}}
